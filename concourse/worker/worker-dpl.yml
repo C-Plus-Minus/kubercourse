@@ -33,7 +33,7 @@ spec:
         volumeMounts:
         - name: concourse-worker-keys
           mountPath: ./concourse-keys
-      volumes:  
+      volumes:
       - name: concourse-worker-keys
         persistentVolumeClaim:
           claimName: concourse-worker-pvc

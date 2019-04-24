@@ -10,7 +10,7 @@ spec:
   - ReadWriteOnce
   PersistentVolumeReclaimPolicy: Retain
   local:
-    path: </some/path/to/store/database/content>
+    path: {{some /path/ to store the database content}}
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -18,4 +18,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - <some_node>
+          - {{some node}}

@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment        
-  labels: 
+  name: postgres-deployment
+  labels:
     app: postgres
 spec:
   replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
       app: postgres
-  template: 
+  template:
     metadata:
       labels:
         app: postgres
@@ -19,11 +19,20 @@ spec:
         image: postgres
         env:
         - name: POSTGRES_DB
-          value: <some_postgres_db_name>
+          valueFrom:
+            secretKeyRef:
+              name: concourse-secret
+              key: database.name
         - name: POSTGRES_USER
-          value: <some_postgres_db_user>
+          valueFrom:
+            secretKeyRef:
+              name: concourse-secret
+              key: database.user
         - name: POSTGRES_PASSWORD
-          value: <some_postgres_db_password>
+          valueFrom:
+            secretKeyRef:
+              name: concourse-secret
+              key: database.password
         ports:
         - containerPort: 5432
         volumeMounts:
