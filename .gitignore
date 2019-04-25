@@ -1,5 +1,8 @@
-**/keys/
-**/secrets/
-**/run.sh
-**/stop.sh
+# Ignore
+concourse/config/keys/web/**
+concourse/config/keys/worker/**
 **/.swp
+
+# Allow
+!/concourse/config/keys/web/.gitkeep
+!/concourse/config/keys/worker/.gitkeep
