@@ -1,17 +1,22 @@
-# Kubercourse - a Kubernetes-based Concourse CI deployment
-**NOTE**: This document is heavily under construction!
+# Kubercourse - Concourse CI on Kubernetes
+**NOTE**: This document is under construction!
+
+Hi and welcome!
+
+This project helps you to set up Kubernetes on your server and deploy the Concourse CI pipeline with its database, worker and web instances. Simply follow the steps below and you should be good.
+
+The setup is optimized for single-node operation mode - i.e. it will run a resource friendly Kubernetes cluster on your server or working station with no external dependencies to could services or the like.
 
 ### Deploying a Kubernetes environment with k3s
 A lightweight Kubernetes cluster can be set up semi-automatically by executing `curl -sfL https://get.k3s.io | sh -` on the 
-server shell.  To verify the installation, execute the command `k3s kubectl get node` - it should display the actual node name.
+server shell. To verify the installation, execute the command `k3s kubectl get node` - it should display the actual node name.
 
 ### Generating cryptographic keys
-Run the generator inside the concourse/config/keys/ directory to create kryptographic keys for the web and worker instanes.
+Run the generator inside the concourse/config/keys/ directory to create cryptographic keys for the web and worker instances.
 
 ### Configuring perisistent volumes
 Set the local storage /paths/ inside the worker-pv.yml/web-pv.yml files to point to the generated keys. To do so, simply replace 
-all the {{stuff}} with **absolute paths to the directories** which contain the keys. Also, configure a local storage /path/ for 
-Postgres inside the database-pv.yml to enable persistence. 
+all the {{stuff}} with **absolute paths to the directories** which contain the keys. Also enter the name of your node. Then, configure a local storage /path/ for Postgres inside the database-pv.yml to enable persistence (it's just an empty directory where you'd like your db to store its stuff).
 
 ### Configuring configMaps and secrets
 Configure config-maps.yml and secrets.yml inside the concourse/config/ directory by replacing all the {{stuff}} with proper values.
