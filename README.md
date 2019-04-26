@@ -20,7 +20,7 @@ all the {{stuff}} with **absolute paths to the directories** which contain the k
 
 ### Configuring configMaps and secrets
 Configure config-maps.yml and secrets.yml inside the concourse/config/ directory by replacing all the {{stuff}} with proper values.
-Please note, that the secerts.yml expects you to provide the values base64-encoded while config-map.yml is configured in cleartext.
+Please note, that the secrets.yml expects you to provide the values base64-encoded and **without a trailing newline** character while config-map.yml values are set as cleartext.
 
 When you're done, expose your secret and config-map to the cluster by executing `k3s kubectl apply -f <file>` for both files. 
 
