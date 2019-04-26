@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment
+  name: concourse-db-deployment
   labels:
-    app: postgres
+    app: concourse-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: concourse-db
   template:
     metadata:
       labels:
-        app: postgres
+        app: concourse-db
     spec:
       containers:
-      - name: postgres
+      - name: concourse-db
         image: postgres:11.2
         env:
         - name: POSTGRES_DB

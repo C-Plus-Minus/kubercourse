@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service
+  name: concourse-db-service
 spec:
   selector:
-    app: postgres
+    app: concourse-db
   ports:
   - protocol: TCP
-    name: "postgres"
+    name: "concourse-postgres"
     port: 5432
     targetPort: 5432
