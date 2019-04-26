@@ -15,8 +15,8 @@ spec:
         app: concourse-worker
     spec:
       containers:
-      - image: concourse/concourse
-        name: concourse-worker
+      - name: concourse-worker
+        image: concourse/concourse:5.1
         ports:
         - containerPort: 7777
           name: garden
