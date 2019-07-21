@@ -42,5 +42,5 @@ k3s kubectl apply -f <secret.yml>
 k3s kubectl apply -f <config-map.yml>
 k3s kubectl create -f <dpl.yml>   # for each deployment
 ```
-
+Alternatively, you can execute the run.sh/stop.sh scripts to deploy/undeploy concourse.
 [WIP]
